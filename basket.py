@@ -25,6 +25,17 @@ class Basket:
     def calculating(self):
         total = sum(item['price'] for item in self.data)
         print(f"Umumiy narx: {total}")
+        
+    def delete_basket(self):
+        self.products.clear() 
+        return "Savat butunlay bo'shatildi!"
+
+    def cheapest_product(self):
+        if not self.data:
+            print("Savat bo'sh")
+            return
+        min_item = min(self.data, key=lambda x: x['price'])
+        print(f"Eng arzon mahsulot: {min_item['product']} ({min_item['price']})")
 
 
 basket = Basket()
